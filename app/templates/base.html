@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <title>The Eye</title>
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            <link rel = "stylesheet" href = "static/css/leaflet.css"/>
+            <link rel="stylesheet" href="static/css//bootstrap.min.css">
+        {% endblock styles %}
+
+        <script type="text/javascript" src = "static/js/leaflet-src.js"></script>
+    {% endblock head %}
+</head>
+<body>
+{% block content %}
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
+</body>
+</html>
