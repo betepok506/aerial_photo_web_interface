@@ -1,3 +1,6 @@
+import os
+
+import requests
 from flask import Flask, render_template, flash, request, redirect, url_for
 from flask_bootstrap import Bootstrap5
 
@@ -6,11 +9,40 @@ Bootstrap5(app)
 
 app.config['SECRET_KEY'] = 'any secret string'
 app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'pulse'
+SERVER_URL = os.getenv("SERVER_HOST", "127.0.0.1") + ":" + str(os.getenv("SERVER_PORT", 8001))
 
 
 @app.route("/", methods=["POST", "GET"])
 def map():
-    return render_template("map.html")
+    class_objects = []
+    response = requests.get(f'http://{SERVER_URL}/classes_query')
+    if response.status_code == 200:
+        class_objects = response.json()
+
+    return render_template("map.html", class_objects=class_objects)
+
+
+@app.route("/polygon_object_by_lat_lng", methods=["POST", "GET"])
+def polygon_object_by_lat_lng():
+    polygons = {"polygons": []}
+    if request.method == 'POST':
+        lat_min = request.form.get('lat_min')
+        lng_min = request.form.get('lng_min')
+        lat_max = request.form.get('lat_max')
+        lng_max = request.form.get('lng_max')
+        cls_obj = request.form.getlist('cls_obj[]')
+        response = requests.post(
+            f'http://{SERVER_URL}/polygon_object_by_lat_lng/', json={
+                "lat_min": float(lat_min),
+                "lng_min": float(lng_min),
+                "lat_max": float(lat_max),
+                "lng_max": float(lng_max),
+                "cls_obj": cls_obj
+            })
+        if response.status_code == 200:
+            polygons["polygons"] = response.json()
+
+    return polygons
 
 
 if __name__ == "__main__":

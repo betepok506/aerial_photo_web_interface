@@ -31,31 +31,17 @@
         <div id="map" style="width:1300px; height: 700px"></div>
         <div class="map_parameters"
              style="display: flex; flex-direction: column; justify-content: top; padding: 0px 20px 20px 20px;">
-            <span class="badge bg-primary"
-                  style="margin-bottom:15px; padding:20px;">Объекты для отображения на карте</span>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckAuto">
-                <label class="form-check-label" for="flexCheckAuto">
-                    Автомобили
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckAirplane" checked>
-                <label class="form-check-label" for="flexCheckAirplane">
-                    Самолеты
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChips" checked>
-                <label class="form-check-label" for="flexCheckChips">
-                    Корабли
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckFires" checked>
-                <label class="form-check-label" for="flexCheckFires">
-                    Пожары
-                </label>
+            <div class="requested_obj">
+                <span class="badge bg-primary"
+                      style="margin-bottom:15px; padding:20px;">Объекты для отображения на карте</span>
+                {% for cur_class_object in class_objects %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="{{ cur_class_object.value }}" name="requested_obj">
+                        <label class="form-check-label" for="flexCheckAuto">
+                            {{ cur_class_object.name }}
+                        </label>
+                    </div>
+                {% endfor %}
             </div>
         </div>
 
@@ -64,60 +50,16 @@
 </div>
 
 <script>
-      var mapOptions = {
-         center: [54.1874, 45.18388],
-         zoom: 15,
-         minZoom: 1,
-         maxZoom: 24
-      }
-      var map = new L.map('map', mapOptions); // Creating a map object
+    jQuery(document).ready(function () {
+        var mapOptions = {
+             center: [54.1874, 45.18388],
+             zoom: 15,
+             minZoom: 1,
+             maxZoom: 24
+        }
 
-<!--      const basemaps = {-->
-<!--        StreetView: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),-->
-<!--        Topography: new L.TileLayer('http://localhost:8282/google_map/?z={z}&x={x}&y={y}', {-->
-<!--                    maxZoom: 24,-->
-<!--                    tms: true,-->
-<!--                     subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],-->
-<!--              })-->
-<!--      };-->
-
-<!--      basemaps.Topography.addTo(map);-->
-<!--      L.control.layers(basemaps).addTo(map);-->
-
-
-
-   var yyayers =  new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18
-   })
-
-   baseMaps = {
-      "OpenStreetMap": yyayers
-   }
-   var Topography = new L.TileLayer('http://localhost:8282/google_map/?z={z}&x={x}&y={y}', {
-                tms: true,
-                maxZoom: 24
-          })
-   var overlays = {
-        "Google Спутник": Topography,
-        "Серая": new L.TileLayer('http://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
-                maxZoom: 24,
-                opacity: 0.5
-          }),
-        "Авто": new L.TileLayer('http://localhost:8099/auto/?z={z}&x={x}&y={y}', {
-            maxZoom: 24
-      })
-    };
-
-    L.control.layers(baseMaps, overlays).addTo(map);
-    L.control.mousePosition().addTo(map);
-    L.control.scale().addTo(map);
-    yyayers.addTo(map);
-
-<!--    var latlngs = [[54.186335688748805, 45.17731010913847], [54.18632941075825, 45.17738386988639]];-->
-
-<!--    var rectOptions = {color: 'Red', weight: 1}-->
-<!--    var rectangle = L.rectangle(latlngs, rectOptions);-->
-<!--    rectangle.addTo(map);-->
-
+        var map = new L.map('map', mapOptions); // Creating a map object
+        load_map(map);
+    });
 </script>
 {% endblock content%}
