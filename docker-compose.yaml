@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: ./
+    ports:
+      - ${WEB_PORT}:${WEB_PORT}
+    env_file:
+      - .env
+#    environment:
+#      HOST: ${HOST}
+#      PORT: ${PORT}
+    volumes:
+      - ./logs:/web/logs

@@ -19,7 +19,12 @@ function load_layer(){
    }
 
    var overlays = {
-        "Google Спутник": new L.TileLayer('http://localhost:8282/google_map/?z={z}&x={x}&y={y}', {
+        "Google спутник" : new L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        }),
+
+        "Google Спутник мой": new L.TileLayer('http://localhost:8282/google_map/?z={z}&x={x}&y={y}', {
             tms: true,
             maxZoom: 24
         }),
