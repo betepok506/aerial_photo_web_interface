@@ -24,13 +24,21 @@ function load_layer(){
             subdomains:['mt0','mt1','mt2','mt3']
         }),
 
-        "Google Спутник мой": new L.TileLayer('http://localhost:8282/google_map/?z={z}&x={x}&y={y}', {
-            tms: true,
-            maxZoom: 24
-        }),
+//        "Google Спутник мой": new L.TileLayer('http://localhost:8282/google_map/?z={z}&x={x}&y={y}', {
+//            tms: true,
+//            maxZoom: 24
+//        }),
         "Серая": new L.TileLayer('http://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
                 maxZoom: 24,
                 opacity: 0.5
+          }),
+         "Landsat 8": new L.TileLayer('http://localhost:8001/get_tiles/?z={z}&x={x}&y={y}', {
+                tms: true,
+                maxZoom: 24,
+          }),
+          "Пожар": new L.TileLayer('http://localhost:8001/get_fire_tiles/?z={z}&x={x}&y={y}', {
+                tms: true,
+                maxZoom: 24,
           }),
         "Авто": new L.TileLayer('http://localhost:8099/auto/?z={z}&x={x}&y={y}', {
             maxZoom: 24
