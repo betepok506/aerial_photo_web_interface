@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title%} {{ title }} {% endblock %}
+
+{% block content%}
+<div class="block-events">
+    <div class="event-container">
+        <div class="event-creation-button-container">
+            <div class="button-create-event">
+                <!--                    <button type="submit" class="btn btn-block btn-primary mb-3"> Создать событие </button>-->
+                <a href="/create_event" class="btn btn-info" role="button">Создать событие</a>
+            </div>
+        </div>
+
+        <div class="list-of-events">
+
+            <div class="post-container">
+                <div class="post-header">
+                    <img src="./static/css/images/test-images.jpg" alt="User Icon">
+                    <div class="post-info">
+                        <h3>Название группы/пользователя</h3>
+                        <p>Время публикации</p>
+                    </div>
+                </div>
+
+                <div class="post-content">
+                    <p>Текст поста здесь...</p>
+                    <img src="./static/css/images/test-images.jpg" alt="Post Image">
+                </div>
+
+                <div class="post-actions">
+                    <button class="like-button">Лайк</button>
+                    <button class="repost-button">Репост</button>
+                    <p class="views-count">Просмотры: 1000</p>
+                </div>
+
+                <div class="comments-container">
+                    <!-- Блок комментариев -->
+                </div>
+            </div>
+
+            <div class="post-container">
+                <div class="post-header">
+                    <img src="./static/css/images/test-images.jpg" alt="User Icon">
+                    <div class="post-info">
+                        <h3>Название группы/пользователя</h3>
+                        <p>Время публикации</p>
+                    </div>
+                </div>
+
+                <div class="post-content">
+                    <p>Текст поста здесь...</p>
+                    <img src="./static/css/images/test-images.jpg" alt="Post Image">
+                </div>
+
+                <div class="post-actions">
+                    <button class="like-button">Лайк</button>
+                    <button class="repost-button">Репост</button>
+                    <p class="views-count">Просмотры: 1000</p>
+                </div>
+
+                <div class="comments-container">
+                    <!-- Блок комментариев -->
+                </div>
+            </div>
+
+            <!--                <div class="card mb-3 card-event">-->
+            <!--                  <div class="row no-gutters">-->
+            <!--                    <div class="col-md-4">-->
+            <!--                      <img src="..." alt="...">-->
+            <!--                    </div>-->
+            <!--                    <div class="col-md-8">-->
+            <!--                      <div class="card-body">-->
+            <!--                        <h5 class="card-title">Заголовок карточки</h5>-->
+            <!--                        <p class="card-text">Это более широкая карта с вспомогательным текстом ниже в качестве естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>-->
+            <!--                        <p class="card-text"><small class="text-muted">Последнее обновление: 3 мин. назад</small></p>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+
+            <!--                <div class="card mb-3 card-event">-->
+            <!--                  <div class="row no-gutters">-->
+            <!--                    <div class="col-md-4">-->
+            <!--                      <img src="..." alt="...">-->
+            <!--                    </div>-->
+            <!--                    <div class="col-md-8">-->
+            <!--                      <div class="card-body">-->
+            <!--                        <h5 class="card-title">Заголовок карточки</h5>-->
+            <!--                        <p class="card-text">Это более широкая карта с вспомогательным текстом ниже в качестве естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>-->
+            <!--                        <p class="card-text"><small class="text-muted">Последнее обновление: 3 мин. назад</small></p>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+
+            <!--                <div class="card mb-3 card-event">-->
+            <!--                  <div class="row no-gutters">-->
+            <!--                    <div class="col-md-4">-->
+            <!--                      <img src="..." alt="...">-->
+            <!--                    </div>-->
+            <!--                    <div class="col-md-8">-->
+            <!--                      <div class="card-body">-->
+            <!--                        <h5 class="card-title">Заголовок карточки</h5>-->
+            <!--                        <p class="card-text">Это более широкая карта с вспомогательным текстом ниже в качестве естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>-->
+            <!--                        <p class="card-text"><small class="text-muted">Последнее обновление: 3 мин. назад</small></p>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+
+
+            <!--                <div class="card mb-3 card-event">-->
+            <!--                  <div class="row no-gutters">-->
+            <!--                    <div class="col-md-4">-->
+            <!--                      <img src="..." alt="...">-->
+            <!--                    </div>-->
+            <!--                    <div class="col-md-8">-->
+            <!--                      <div class="card-body">-->
+            <!--                        <h5 class="card-title">Заголовок карточки</h5>-->
+            <!--                        <p class="card-text">Это более широкая карта с вспомогательным текстом ниже в качестве естественного перехода к дополнительному контенту. Этот контент немного длиннее.</p>-->
+            <!--                        <p class="card-text"><small class="text-muted">Последнее обновление: 3 мин. назад</small></p>-->
+            <!--                      </div>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+        </div>
+
+        <!--            <div class="pagination-of-events">-->
+        <!--                <ul class="pagination justify-content-center">-->
+        <!--                <li class="page-item disabled">-->
+        <!--                  <a class="page-link">Предыдущая</a>-->
+        <!--                </li>-->
+        <!--                <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+        <!--                <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+        <!--                <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+        <!--                <li class="page-item">-->
+        <!--                  <a class="page-link" href="#">Следующая</a>-->
+        <!--                </li>-->
+        <!--              </ul>-->
+        <!--            </div>-->
+        <!---->
+    </div>
+</div>
+
+{% endblock %}

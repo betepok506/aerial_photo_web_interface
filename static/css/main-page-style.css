@@ -1,0 +1,354 @@
+.map_container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+#sidebar {
+  z-index: 1020;
+}
+
+.block-carousel {
+  width: 99%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.secondary-text {
+  font-size: 20;
+  color: #878787;
+}
+
+.sidebar-text {
+  font-size: 16px;
+  color: #131212;
+}
+
+/*Список элементов боковой понели*/
+.sidebar-elements {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Одиночный элемент боковой понели*/
+.sidebar-item {
+  display: block;
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+}
+
+h3 {
+  color: black;
+  margin-bottom: 0px;
+}
+
+@media (min-width: 425px) and (max-width:767px) {
+  #carouselImagesEvents .carousel-inner .carousel-item {
+    height: 140px;
+  }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+  #carouselImagesEvents .carousel-inner .carousel-item .carousel-img {
+    height: 150px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  #carouselImagesEvents .carousel-inner .carousel-item .carousel-img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #carouselImagesEvents .carousel-inner .carousel-item {
+    height: 220px;
+  }
+}
+
+/* Вспылвающее окно при наведении на маркер */
+/*
+.map_container .leaflet-popup-content-wrapper {
+    background:#2c3e50;
+    color:#fff;
+    font-size:16px;
+    line-height:24px;
+}
+
+.map_container .leaflet-popup-content-wrapper a {
+    color:rgba(255,255,255,0.5);
+}
+
+.map_container .leaflet-popup-tip-container {
+    width:30px;
+    height:15px;
+}
+
+.map_container .leaflet-popup-tip {
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+    border-top:15px solid #2c3e50;
+ }
+ */
+
+/* Звезды */
+.star-rating {
+  font-size: 0;
+}
+
+.star-rating__wrap {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.star-rating__wrap:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.star-rating__ico {
+  float: right;
+  padding-left: 2px;
+  cursor: pointer;
+  color: #FFB300;
+}
+
+.star-rating__ico:last-child {
+  padding-left: 0;
+}
+
+.star-rating__input {
+  display: none;
+}
+
+.star-rating__ico:hover:before,
+.star-rating__ico:hover~.star-rating__ico:before,
+.star-rating__input:checked~.star-rating__ico:before {
+  content: "\f005";
+}
+
+/* Стили вспылвающего окна маркера*/
+/*
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      color: #333;
+      width: 300px;
+    }
+
+    .custom-popup img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 12px;
+    }
+
+    .place-type {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .working-hours {
+      margin-bottom: 10px;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button {
+      padding: 8px 12px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 14px;
+    }
+    */
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: transparent;
+  /* Изменяем цвет фона */
+  box-shadow: none;
+  /* Убираем тень */
+  border: none;
+  /* Убираем границы */
+}
+
+/*
+.leaflet-popup-content-wrapper, .leaflet-popup-content, .leaflet-popup-tip{
+    max-width: 800px;
+    width: 800px;
+}
+*/
+.leaflet-popup-content {
+  background-color: #000;
+  /* Цвет фона контента */
+  color: #fff;
+  /* Цвет текста контента */
+  border-radius: 4px;
+  /* overflow: hidden; */
+  /* Прячем выход за границы */
+}
+
+.custom-popup {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  width: 400px;
+  /* Ширина окна */
+}
+
+.left-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.right-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.place-name {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.place-type,
+.address,
+.rating {
+  margin-bottom: 8px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.button {
+  flex: 1;
+  margin-right: 8px;
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+}
+
+.right-content img {
+  max-width: 100%;
+  /* Защита от выхода за границы */
+  height: auto;
+  border-radius: 4px;
+  /* Дополнительное скругление углов для изображения */
+}
+
+/* Стили кнопок на карте */
+/* #filter-buttons-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+
+.button {
+  margin-right: 10px;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.arrow.left {
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.71 6.7a.996.996 0 0 0-1.41 0z"/></svg>');
+}
+
+.arrow.right {
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M14.71 6.71a.996.996 0 0 0 0 1.41L18.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L15.12 6.7a.996.996 0 0 0-1.41 0z"/></svg>');
+}
+
+.arrow-container {
+  display: flex;
+  align-items: center;
+  position: fixed; 
+  top: 10px;
+  right: 10px;
+  z-index: 1035;
+}
+
+#filter-buttons-container:hover .arrow-container {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#filter-buttons-container:not(:hover) .arrow-container {
+  opacity: 0;
+} */
+
+
+@media (min-width:400px) {
+  #filter-buttons-container.sidebar-open {
+    left: 320px;
+  }
+}
+
+@media (min-width:768px) {
+  #filter-buttons-container.sidebar-open {
+    left: 365px;
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  #filter-buttons-container.sidebar-open {
+    left: 375px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  #filter-buttons-container.sidebar-open {
+    left: 460px;
+  }
+}
+
+@media (min-width:1200px) {
+  #filter-buttons-container.sidebar-open {
+    left: 540px;
+  }
+}
