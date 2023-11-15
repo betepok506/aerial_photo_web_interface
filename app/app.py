@@ -30,8 +30,8 @@ def create_app():
     app.secret_key = 'secret-key'
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-    app.logger.addHandler(get_file_handler())
-    app.logger.setLevel(logging.INFO)
+    # app.logger.addHandler(get_file_handler())
+    # app.logger.setLevel(logging.INFO)
 
     login_manager.init_app(app)
     db.init_app(app)

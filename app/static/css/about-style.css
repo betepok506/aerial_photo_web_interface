@@ -1,0 +1,272 @@
+.page_layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    align-items: center;
+    /* height: 70vh; */
+}
+
+.main_feed {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 80%;
+    /* height: 70vh;; */
+    /* background-color: aliceblue; */
+}
+
+.information_block {
+    /* background-color:rgb(80, 78, 78); */
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px;
+    padding: 35px;
+}
+
+.information_block h3 {
+    margin-bottom: 30px;
+}
+
+.dark-mode h3 {
+    color:rgb(241, 237, 237);
+}
+
+.dark-mode {
+    background-color: #3b3939;
+    color: #fff;
+}
+/* .r {
+    color: #6e6a6a;
+    color: #ffffff;
+} */
+
+.light-mode {
+    background-color: #e9e5e5;
+    color: #333333;
+}
+
+.light-mode a {
+    color: #333333;!important;
+}
+
+
+/* Слайдер */
+
+.slider-container {
+    max-width: 100%;
+    /* margin: 20px auto; */
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* .active {
+    background-color: #ddd;
+} */
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+/* Карточка сокомандника */
+.team-member-card {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-width: 280px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Медиа-запрос для маленьких экранов */
+@media screen and (min-width: 480px) and (max-width: 1199px){
+    .team-member-card {
+        flex-direction: column;
+    }
+
+    .avatar,
+    .info {
+        width: 100%;
+    }
+
+    .info {
+        text-align: left;
+    }
+}
+
+/* Медиа-запрос для экранов от 481px до 768px */
+@media screen and (min-width: 1200px) {
+    .team-member-card {
+        flex-direction: row;
+    }
+
+    .avatar,
+    .info {
+        width: 100%;
+    }
+
+    .info {
+        text-align: left;
+    }
+}
+
+
+/*Описание проекта*/
+.project-description {
+    display: flex;
+    /* width: 100%; */
+    /* flex-direction: column; */
+}
+
+.image-column {
+    flex: 0 0 40%; /* Левая колонка, 40% ширины контейнера */
+    display: flex;
+    align-items: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-column {
+    /* flex: 1; Правая колонка, занимает оставшуюся ширину контейнера */
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .project-description {
+        flex-direction: row;
+    }
+
+    .image-column,
+    .text-column {
+        flex: 1; /* Каждая колонка занимает 100% ширины при вертикальном расположении */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .project-description {
+        flex-direction: column;
+    }
+
+    .image-column,
+    .text-column {
+        flex: 1; /* Каждая колонка занимает 100% ширины при вертикальном расположении */
+    }
+}
+
+/* Преимущества приложения */
+.advantages-container {
+    max-width: 100%;
+    margin: 20px auto;
+    /* text-align: center; */
+}
+
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-list li {
+    margin: 10px 0;
+    padding: 10px;
+    /* background-color: #f8f8f8; */
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Соц сети*/
+.social-links-container {
+    max-width: auto;
+    text-align: center;
+}
+
+.social-links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links-list li {
+    margin: 10px 0;
+}
+
+.social-links-list a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+/* Стили для кнопок Facebook */
+.social-links-list a.facebook {
+    color: #fff;
+    background-color: #1877f2; /* Цвет Facebook */
+}
+
+.social-links-list a.facebook:hover {
+    background-color: #115293;
+}

@@ -1,10 +1,265 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title%} {{ title }} {% endblock %}
+{% block content%}
 
-</body>
-</html>
+<!-- <body class="light-mode">
+    <div>
+        <button onclick="toggleMode()">Переключить схему</button>
+    </div>
+
+</body> -->
+
+<div class="page_layout dark-mode" , id="page_layout">
+    <div class="main_feed">
+        <div class="information_block">
+
+            <div class="project-description">
+
+                <div class="image-column">
+                    <img src="./static/css/images/logo_small.png" alt="Логотип">
+                </div>
+
+                <div class="info">
+                    <h3> Описание проекта</h3>
+                    <p> Проект представляет собой онлайн-платформу с интерактивной картой, объединяющей разнообразные
+                        достопримечательности, музеи, рестораны и развлекательные заведения. Сайт обеспечивает доступ к
+                        детальной информации о каждом месте, включая описание, рейтинг и отзывы посетителей. Помимо
+                        этого, мы
+                        предлагаем персонализированные рекомендации для наших пользователей, основанные на их интересах,
+                        и
+                        способствуем возможности планирования посещений вместе с другими участниками для обогащения
+                        опыта и
+                        образования новых социальных связей.</p>
+
+                    <h3> Миссия </h3>
+                    <p> Проект представляет собой онлайн-платформу с интерактивной картой, объединяющей разнообразные
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="information_block">
+            <h3> Цель </h3>
+            <p> Проект представляет собой онлайн-платформу с интерактивной картой, объединяющей разнообразные </p>
+        </div>
+
+        <div class="information_block">
+            <h3> Миссия </h3>
+            <p> Проект представляет собой онлайн-платформу с интерактивной картой, объединяющей разнообразные </p>
+        </div>
+
+        <div class="information_block slider-container">
+            <h3> Команда </h3>
+            <button class="slider-button prev" onclick="prevSlide()">&#9664;</button>
+
+            <div class="slider-content">
+                <div class="slide active">
+                    <div class="team-member-card">
+                        <div class="avatar">
+                            <img src="./static/css/images/team-member.jpeg" alt="Фотография сокомандника">
+                        </div>
+                        <div class="info">
+                            <div class="info-item">
+                                <strong>Имя:</strong>
+                                <span>Имя сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Должность:</strong>
+                                <span>Должность сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Обязанности:</strong>
+                                <span>Обязанности сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>О себе:</strong>
+                                <span>Несколько слов о себе...</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Роль в команде:</strong>
+                                <span>Роль сокомандника в команде</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="team-member-card">
+                        <div class="avatar">
+                            <img src="./static/css/images/team-member-1.jpg" alt="Фотография сокомандника">
+                        </div>
+                        <div class="info">
+                            <div class="info-item">
+                                <strong>Имя:</strong>
+                                <span>Имя сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Должность:</strong>
+                                <span>Должность сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Обязанности:</strong>
+                                <span>Обязанности сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>О себе:</strong>
+                                <span>Несколько слов о себе...</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Роль в команде:</strong>
+                                <span>Роль сокомандника в команде</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="team-member-card">
+                        <div class="avatar">
+                            <img src="./static/css/images/team-member-2.jpg" alt="Фотография сокомандника">
+                        </div>
+                        <div class="info">
+                            <div class="info-item">
+                                <strong>Имя:</strong>
+                                <span>Имя сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Должность:</strong>
+                                <span>Должность сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Обязанности:</strong>
+                                <span>Обязанности сокомандника</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>О себе:</strong>
+                                <span>Несколько слов о себе...</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Роль в команде:</strong>
+                                <span>Роль сокомандника в команде</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-button next" onclick="nextSlide()">&#9654;</button>
+        </div>
+
+        <div class="information_block">
+            <h3> Ценности организации </h3>
+            <p> Проект представляет собой онлайн-платформу с интерактивной картой, объединяющей разнообразные </p>
+        </div>
+
+        <div class="information_block">
+            <div class="advantages-container">
+                <h3>Преимущества приложения</h3>
+                <ul class="advantages-list">
+                    <li>Простой и интуитивно понятный интерфейс</li>
+                    <li>Быстрая и эффективная работа</li>
+                    <li>Многофункциональность и гибкие настройки</li>
+                    <li>Поддержка множества платформ</li>
+                </ul>
+            </div>
+            <!-- <h3> Преимущества </h3>
+            <p> Проект представляет собой онлайн-платформу с интерактивной картой, объединяющей разнообразные </p> -->
+        </div>
+
+        <div class="information_block">
+            <h3>Подписывайтесь на нас в социальных сетях:</h3>
+            <div class="social-links-container">
+                <ul class="social-links-list">
+                    <li><a href="https://vk.com/club223358723" target="_blank">VK</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" style="width: 87%;">
+        <p class="col-md-4 mb-0 text-muted">© 2023 WayToRest, Inc</p>
+
+        <a href="/"
+            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="/main" class="nav-link px-2 text-muted">Главная</a></li>
+            <li class="nav-item"><a href="/events" class="nav-link px-2 text-muted">События</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Вход</a></li>
+            <li class="nav-item"><a href="/register" class="nav-link px-2 text-muted">Регистрация</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">О нас</a></li>
+        </ul>
+    </footer>
+</div>
+
+<script>
+    jQuery(document).ready(function () {
+        toggleMode();
+        document.documentElement.style.setProperty('--bs-secondary-color', '#212529');
+    });
+    function toggleMode() {
+        const body = document.getElementsByClassName('page_layout')[0];
+        body.classList.toggle('dark-mode');
+        body.classList.toggle('light-mode');
+
+        information_blocks = document.getElementsByClassName('information_block');
+
+        // information_blocks = document.querySelector('.information_block');
+        for (let i = 0; i < information_blocks.length; i++) {
+            if (body.classList.contains('dark-mode')) {
+                information_blocks[i].style.backgroundColor = '#6e6a6a'; // Новый цвет границы для темной темы
+            } else {
+                information_blocks[i].style.backgroundColor = '#ffffff'; // Вернуть стандартный цвет границы
+            }
+        }
+
+        information_blocks = document.getElementsByClassName('info');
+        for (let i = 0; i < information_blocks.length; i++) {
+            if (body.classList.contains('dark-mode')) {
+                information_blocks[i].style.backgroundColor = '#6e6a6a'; // Новый цвет границы для темной темы
+            } else {
+                information_blocks[i].style.backgroundColor = '#ffffff'; // Вернуть стандартный цвет границы
+            }
+        }
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const sliderContent = document.querySelector('.slider-content');
+    const slideWidth = slides[0].clientWidth;
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else {
+            currentSlide = 0;
+        }
+        updateSlider();
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+        } else {
+            currentSlide = totalSlides - 1;
+        }
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const newTransformValue = -currentSlide * slideWidth + 'px';
+        sliderContent.style.transform = 'translateX(' + newTransformValue + ')';
+
+        // Удаление активного класса со всех слайдов и добавление активного класса к текущему слайду
+        slides.forEach((slide) => {
+            slide.classList.remove('active');
+        });
+        slides[currentSlide].classList.add('active');
+    }
+</script>
+{% endblock %}

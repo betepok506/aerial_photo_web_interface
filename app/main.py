@@ -70,9 +70,9 @@ def create_event():
     return render_template("create_event.html", title="Создание события")
 
 
-# @app.route("/home2", methods=("GET", "POST"), strict_slashes=False)
-# def home2():
-#     return render_template("test.html", title="Home")
+@app.route("/about", methods=("GET", "POST"), strict_slashes=False)
+def about():
+    return render_template("about.html", title="О нас")
 
 
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)

@@ -278,6 +278,12 @@ function add_events_listener() {
     // add_events_buttons_to_map();
 }
 
+// function toggleMode() {
+//     const body = document.getElementsByClassName('page_layout')
+//     body.classList.toggle('dark-mode');
+//     body.classList.toggle('light-mode');
+// }
+
 // function add_events_buttons_to_map() {
 //     var filterButtonsContainer = document.getElementById('filter-buttons-container');
 //     var arrowLeftContainer = document.getElementById('arrow-left-container');

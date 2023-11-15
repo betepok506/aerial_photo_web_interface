@@ -59,3 +59,35 @@
 .footer{
     margin-top: 0px;
 }
+
+/* Изменение положения navbar */
+/* .navbar-collapse {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    background:#f1f1f1;
+    max-width: 320px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .navbar-collapse.collapsing {
+    height: 100%;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+    left: -100%;
+  }
+
+  .navbar-collapse.show {
+    left: 0;
+    -webkit-transition: left 0.3s ease-in;
+    -o-transition: left 0.3s ease-in;
+    -moz-transition: left 0.3s ease-in;
+    transition: left 0.3s ease-in;
+  } */
