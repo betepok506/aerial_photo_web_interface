@@ -1,0 +1,387 @@
+.logo {
+    height: 89vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding: 20% 0; */
+    background-image: url('/static/css/images/map.png'); /* Путь к изображению вставьте свой */
+    background-size: cover;
+    color: white;
+}
+
+.logo h1 {
+    font-size: 8em;
+    margin-bottom: 40px;
+}
+
+.separator {
+    width: 15%;
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+.platform-description {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+
+.block-content {
+    text-align: center;
+    display: flex;
+    background-color: #f28713;
+    background: linear-gradient(to bottom, #f28713, #f1af69); /* Градиент от оранжевого к желтому */
+
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* align-items:flex-start; */
+    align-content:flex-start;
+    /* align-content: flex-start; */
+    min-height: 89vh; /* Высота блока на весь экран */
+    position: relative; /* Добавим позиционирование для позиционирования текста */
+    overflow: hidden; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.07); /* Цвет затемнения (черный с прозрачностью) */
+    z-index: 2; /* Определяем, что затемнение должно быть выше остальных элементов */
+}
+
+.about {
+    position: relative;
+    width: 80%;
+
+}
+.about img {
+    width: 50%;
+    max-width: 100%; /* Изображение не превысит ширину родительского блока */
+    max-height: 100%; /* Изображение не превысит высоту родительского блока */
+    object-fit: contain; /* Изображение сохраняет пропорции и помещается внутри блока */
+    position: relative; /* Позиционирование изображения относительно родительского блока */
+    z-index: 1; /* Определяем, что изображение должно быть выше текста */
+}
+
+.text-over-image {
+    position: absolute; /* Позиционирование текста относительно родительского блока */
+    top: 50%; /* Размещаем текст на середине по вертикали */
+    left: 50%; /* Размещаем текст на середине по горизонтали */
+    width: 100%;
+    transform: translate(-50%, -50%); /* Центрируем текст относительно его центральной точки */
+    z-index: 3; /* Определяем, что текст должен быть выше изображения */
+    color: #ffffcc; /* Цвет текста, чтобы он был виден на изображении */
+    /* font-size: 1.5em; */
+    font-weight: 600;
+}
+
+.block-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.title {
+    width: 80%;
+    z-index: 4;
+    color: #002060;
+    font-size: 40px;
+    margin-top: 60px; /* Добавим небольшой отступ сверху */
+}
+
+/* Стили для второго блока с колонками */
+.columns-container {
+    min-height: 50vh;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    text-align: center;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: auto;
+}
+
+/* Стили для колонок */
+.benefits-column {
+    /* width: 15%; */
+    min-width: 200px;
+    margin-top: 60px;
+    margin-left: 10px; /* Добавим небольшие отступы между колонками */
+    padding: 20px;
+    box-sizing: border-box; /* Учтем padding внутри колонок в общей ширине */
+    
+}
+
+/* Стили для изображения в колонке */
+.benefits-column img {
+    max-width: 100%; /* Изображение не превысит ширину родительского блока */
+    max-height: 100px; /* Ограничим высоту изображения */
+    object-fit: cover; /* Изображение займет всю доступную высоту с сохранением пропорций */
+    margin-bottom: 20px; /* Добавим отступ снизу от изображения */
+}
+
+/* Стили для заголовка в колонке */
+.benefits-column h2 {
+    font-size: 22px;
+    margin-bottom: 15px; /* Добавим отступ снизу от заголовка */
+    color: #ffffcc;
+}
+
+/* Стили для описания в колонке */
+.benefits-column p {
+    font-size: 16px;
+    color: #002060;
+    font-weight: 600;
+}
+
+/* Блок о том, как мы работаем */
+.centered-block {
+    text-align: center;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%; /* Отступ сверху для разделения блоков */
+}
+
+/* Стили для строк */
+.description_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-bottom: 50px; /* Отступ между строками */
+}
+
+/* Стили для центральной колонки */
+.centered-column {
+    flex: 1; /* Оставшееся пространство занимает центральная колонка */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    text-align: left; /* Выравнивание текста влево */
+}
+
+/* Стили для SVG в центральной колонке */
+.centered-column svg {
+    width: 24px; /* Ширина SVG-иконки */
+    height: 24px; /* Высота SVG-иконки */
+    margin-right: 30px;
+    fill: #333; /* Цвет иконки */
+}
+
+.text-column {
+    margin-left: 30px;
+}
+
+.text-column p {
+    text-align: left; /* Выравнивание текста влево */
+    margin: 0; /* Убираем внешние отступы у текста */
+    font-size: 16px;
+    color: #ffffcc;
+    font-weight: 600;
+}
+
+/* .centered-block ul {
+    text-align: left;
+} */
+
+table, th, td {
+    border: 1px solid black;
+}
+
+/* Цвет заголовка */
+th {
+    color: #ffffcc; /* Измените цвет по вашему выбору */
+    font-weight: 600;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+td, .centered-block {
+    color: #002060;
+    font-weight: 600;
+}
+/* Ширина второго столбца */
+td:nth-child(2) {
+    width: 30%;
+}
+
+@media screen and (min-width: 319px) and (max-width: 424px) {
+    .about {
+        margin-top: 150px;
+        width: 256px;
+    }
+
+    .benefits-column {
+        width: 90%;
+    }
+
+    .about img {
+        width: 100%;
+    }
+
+    .centered-block {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (min-width: 424px) and (max-width: 766px) {
+    .about {
+        margin-top: 150px;
+        min-width: 375px;
+        width: 80%;
+    }
+
+    .about img {
+        width: 90%;
+    }
+
+    .text-over-image {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    th, td {
+        font-size: 16px;
+    }
+    .centered-block p {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1022px) {
+    .about {
+        margin-top: 150px;
+        width: 600px;
+    }
+
+    .text-over-image {
+        width: 650px;
+    }
+
+    .benefits-column {
+        width: 600px;
+    }
+}
+
+@media screen and (min-width: 1023px) {
+    .about {
+        margin-top: 100px;
+        width: 600px;
+    }
+
+    .text-over-image {
+        margin-top: 50px;
+        width: 900px;
+        font-size: 24px;
+    }
+
+    th, td {
+        font-size: 24px;
+    }
+
+    .benefits-column {
+        width: 40%;
+    }
+
+    .benefits-column h2 {
+        font-size: 28px;
+    }
+
+    .benefits-column p {
+        font-size: 24px;
+    }
+
+    .centered-block p{
+        font-size: 24px;
+    }
+
+    .text-column p {
+        font-size: 24px;
+    }
+}
+
+
+@media screen and (min-width: 2559px) {
+    .title {
+        font-size: 60px;
+    }
+
+    .about {
+        width: 600px;
+    }
+
+    .benefits-column {
+        width: 17%;
+    }
+
+    .benefits-column h2 {
+        font-size: 44px;
+    }
+
+    .benefits-column p {
+        font-size: 32px;
+    }
+
+    th, td {
+        font-size: 32px;
+    }
+
+    .text-over-image {
+        width: 1500px;
+        font-size: 2em;
+    }
+
+
+    .text-column p {
+        font-size: 32px;
+    }
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .logo {
+        height: 60vh;
+    }
+
+    .centered-block {
+        width: 90%;
+    }
+
+    .logo h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .platform-description {
+        font-size: 1em;
+    }
+
+    /* .text-over-image {
+        font-size: 1.0em;
+    } */
+}
+
+/* @media screen and (max-width: 1023px) {
+    .centered-block {
+        width: 80%;
+    }
+} */

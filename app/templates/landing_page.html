@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="/static/css/landing_page.css" />
+
+    <title>WayToRest - Онлайн-платформа</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="/main" style="text-align: center; display: flex; align-items: center;">
+                <img src="/static/css/images/logo_small.png" alt=""
+                    style="border-radius: 50%; width: 60px; height: 60px; margin-right: 15px;"
+                    class="d-inline-block align-text-top">
+                WayToRest
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="О нас">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" onclick="scrollToSection('about')" href="#">О
+                            нас</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="scrollToSection('business_benefits')" href="#">Преимущества для
+                            вашего бизнеса</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="scrollToSection('how_we_work')" href="#">Как мы работаем</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="scrollToSection('price')" href="#">Цена</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="scrollToSection('contacts')" href="#">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="logo">
+        <h1>WayToRest</h1>
+        <div class="separator"></div>
+        <p class="platform-description">Онлайн-платформа организации досуга</p>
+    </div>
+
+    <div class="block-content" id="about">
+        <div class="block-title">
+            <h1 class="title">О НАС</h1>
+        </div>
+        <div class="overlay"></div>
+
+        <div class="about">
+            <img src="https://static.tildacdn.info/lib/tildaicon/66306234-3864-4161-b662-353935626564/Tilda_Icons_47dlvr_where.svg"
+                alt="Ваше изображение">
+
+            <p class="text-over-image">Мы предоставляем вам уникальное предложение, направленное на максимальное
+                раскрытие
+                потенциала вашего
+                бизнеса. Просто создайте страничку вашего заведения или мероприятия на нашей платформе, и мы гарантируем
+                вам не только продвижение, но и привлечение новой аудитории при помощи таргетированной рекламы. Наша
+                подробная статистика и возможности сбора и анализа обратной связи станут вашими надежными помощниками в
+                принятии обоснованных решений для успешного ведения бизнеса.</p>
+        </div>
+    </div>
+
+    <div class="block-content" id="business_benefits">
+        <div class="block-title">
+            <h1 class="title">Преимущества для вашего бизнеса</h1>
+        </div>
+
+        <div class="columns-container">
+            <div class="benefits-column">
+                <img src="https://static.tildacdn.info/lib/tildaicon/31623462-3432-4535-b339-366437313662/social_networks.svg"
+                    imgfield="li_img__6867100788870" alt="">
+                <h2>Создание привлекательной странички</h2>
+                <p>Ваше заведение или мероприятие будет представлено в наилучшем свете на нашей платформе, привлекая
+                    внимание потенциальных клиентов </p>
+            </div>
+
+            <div class="benefits-column">
+                <img src="https://static.tildacdn.info/lib/tildaicon/39663566-3531-4965-a338-643061303761/progress.svg"
+                    imgfield="li_img__6867100788871" alt="">
+                <h2>Таргетированная реклама</h2>
+                <p>Мы предлагаем вам мощный инструмент — таргетированную рекламу, которая точно дойдет до вашей целевой
+                    аудитории, обеспечивая максимальный эффект</p>
+            </div>
+
+            <div class="benefits-column">
+                <img src="https://static.tildacdn.info/lib/tildaicon/38633236-3964-4738-a431-363334653037/target_audience.svg"
+                    imgfield="li_img__6867100788872" alt="">
+                <h2>Подробная Статистика</h2>
+                <p>Наша подробная статистика будет доступна вам в реальном времени, помогая вам анализировать
+                    эффективность
+                    и принимать обоснованные решения для оптимального развития вашего бизнеса
+                </p>
+            </div>
+
+            <div class="benefits-column">
+                <img src="https://static.tildacdn.info/lib/tildaicon/32303164-3634-4465-b438-383363303939/analytics.svg"
+                    imgfield="li_img__1700855575593" alt="">
+                <h2>Сбор и анализ обратной связи</h2>
+                <p>Мы предоставим вам возможность эффективно собирать и анализировать обратную связь, что поможет вам
+                    лучше
+                    понимать потребности клиентов и улучшать качество предоставляемых услуг
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="block-content" id="how_we_work" style="height: 45vh;">
+        <h1 class="title">Как мы работаем</h1>
+
+        <div class="centered-block">
+            <div class="overlay"></div>
+            <div class="description_row">
+                <div class="image-column">
+                    <svg role="presentation" style="width:55px; height:55px;" fill="#001f89"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.8 31.8">
+                        <path
+                            d="M.9 14.5C5.2 19.4 9.8 24 14.1 29c.4.5 1.3.3 1.6-.2 5.1-8.4 10.1-16.8 15-25.4.7-1.2-.5-2.1-1.3-.9C19.3 18 19 18.4 13.9 26.7c.5-.1 1.1-.1 1.6-.2-4.4-4.8-8.9-8.6-13.9-12.8-.4-.4-1.1.3-.7.8z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="text-column">
+                    <p>Самостоятельно создаете страничку заведения или доверяете это нам</p>
+                </div>
+            </div>
+            <div class="description_row">
+                <div class="image-column">
+                    <svg role="presentation" style="width:55px; height:55px;" fill="#001f89"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.8 31.8">
+                        <path
+                            d="M.9 14.5C5.2 19.4 9.8 24 14.1 29c.4.5 1.3.3 1.6-.2 5.1-8.4 10.1-16.8 15-25.4.7-1.2-.5-2.1-1.3-.9C19.3 18 19 18.4 13.9 26.7c.5-.1 1.1-.1 1.6-.2-4.4-4.8-8.9-8.6-13.9-12.8-.4-.4-1.1.3-.7.8z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="text-column">
+                    <p>Выбираете нужный функционал</p>
+                </div>
+            </div>
+
+            <div class="description_row">
+                <div class="image-column">
+                    <svg role="presentation" style="width:55px; height:55px;" fill="#001f89"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.8 31.8">
+                        <path
+                            d="M.9 14.5C5.2 19.4 9.8 24 14.1 29c.4.5 1.3.3 1.6-.2 5.1-8.4 10.1-16.8 15-25.4.7-1.2-.5-2.1-1.3-.9C19.3 18 19 18.4 13.9 26.7c.5-.1 1.1-.1 1.6-.2-4.4-4.8-8.9-8.6-13.9-12.8-.4-.4-1.1.3-.7.8z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="text-column">
+                    <p>Покажем наглядную статистику по результативности рекламы, профилю аудитории и тому, как клиенты
+                        вас
+                        находят</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="block-content" id="price" style="height: 45vh;">
+        <h1 class="title">Прайс лист</h1>
+
+        <div class="centered-block">
+            <table>
+                <tr style>
+                    <th>Услуга</th>
+                    <th>Цена</th>
+                </tr>
+                <tr>
+                    <td>Анонс на сайте</td>
+                    <td>2 500 руб.</td>
+                </tr>
+                <tr>
+                    <td>Создание карточки заведения по вашему запросу</td>
+                    <td>2 000 руб.</td>
+                </tr>
+                <tr>
+                    <td>Предоставление полной аналитики взаимодействия с карточкой заведения (1 месяц)</td>
+                    <td>1 000 руб.</td>
+                </tr>
+                <tr>
+                    <td>Сбор и анализ обратной связи (1 месяц)</td>
+                    <td>1 000 руб.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="block-content" id="contacts" style="height: 45vh;">
+        <div class="overlay"></div>
+        <div class="centered-block">
+            <p>Присоединитесь к нашей платформе сегодня, чтобы начать использовать все преимущества, которые мы
+                предоставляем для успешного продвижения вашего бизнеса. Создайте свою страничку, доверьтесь нам с
+                рекламной стратегией, и вместе мы сделаем ваш бизнес максимально привлекательным для вашей аудитории.
+            </p>
+            <div class="columns-container">
+                <div class="benefits-column">
+                    <img src="/static/css/images/qr_group.png" style="width: 200px; height: 200px; max-height: 200px;"
+                        alt="Qr код группы 'ВКонтакте'">
+                    <h2>Группа "ВКонтакте"</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" style="width: 87%;">
+            <p class="col-md-4 mb-0 text-muted">© 2023 WayToRest, Inc</p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="/main" class="nav-link px-2 text-muted">Главная</a></li>
+                <li class="nav-item"><a href="/events" class="nav-link px-2 text-muted">События</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Вход</a></li>
+                <li class="nav-item"><a href="/register" class="nav-link px-2 text-muted">Регистрация</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">О нас</a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+
+</html>

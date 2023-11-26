@@ -173,6 +173,11 @@ def getMarkers():
     return jsonify(filtered_markers)
 
 
+@app.route("/landing_page/", methods=["GET"])
+def landing_page():
+    return render_template("landing_page.html", title="Лендинг")
+
+
 @app.route("/logout")
 @login_required
 def logout():
