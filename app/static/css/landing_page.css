@@ -7,7 +7,7 @@
     align-items: center;
 
     /* padding: 20% 0; */
-    background-image: url('/static/css/images/map.png'); /* Путь к изображению вставьте свой */
+    background-image: url('./static/css/images/map.PNG'); /* Путь к изображению вставьте свой */
     background-size: cover;
     color: white;
 }
