@@ -64,25 +64,25 @@ function initial_map() {
                 data.forEach(markerData => {
 
                     var marker = L.marker([markerData.lat, markerData.lng], { icon: icon }).addTo(markersLayer);
-
+                    
                     marker.bindPopup(`
-                <div class='custom-popup'>
-                  <div class='left-content'>
-                    <div class='place-name'>${markerData.name}</div>
-                    <div class='place-type'>${markerData.type}</div>
-                    <div class='address'>${markerData.address}</div>
-                    <div class='rating'>Rating: ${markerData.rating} (${markerData.reviews} reviews)</div>
-                    <div class='working-hours'>Working Hours: ${markerData.workingHours}</div>
-                    <div class='buttons-container'>
-                      <button class='button'>Маршрут</button>
-                      <button class='button'>Сайт</button>
-                      <button class='button'>Телефон</button>
-                    </div>
-                  </div>
-                  <div class='right-content'>
-                     <img src='${markerData.imageUrl}' onerror="this.src='https://via.placeholder.com/300'" alt='Image'>
-                  </div>
-                </div>`,
+                        <div class='custom-popup'>
+                        <div class='left-content'>
+                            <div class='place-name'>${markerData.name}</div>
+                            <div class='place-type'>${markerData.type}</div>
+                            <div class='address'>Адресс: ${markerData.address}</div>
+                            <div class='rating'>Рейтинг: ${markerData.rating} (${markerData.reviews} отзывов)</div>
+                            <div class='working-hours'>График работы: ${markerData.workingHours}</div>
+                            <div class='buttons-container'>
+                            <button class='button'>Маршрут</button>
+                            <button class='button'>Сайт</button>
+                            <button class='button'>Телефон</button>
+                            </div>
+                        </div>
+                        <div class='right-content'>
+                            <img src='${markerData.imagesUrl[0]}' onerror="this.src='https://via.placeholder.com/300'" alt='Image'>
+                        </div>
+                        </div>`,
                         { maxWidth: "auto" });
 
                     // Добавляем события при наведении на маркер
@@ -94,13 +94,18 @@ function initial_map() {
                         this.closePopup();
                     });
 
+                    marker.on('click', function () {
+                        sidebar.open('sidebar-map');
+                        request_info_about_marker(markerData.idx);
+                      });
+
                 });
             })
             .catch(error => console.error('Error fetching markers:', error));
 
-        markersLayer.on("click", function (event) {
-            sidebar.open('sidebar-map');
-        });
+        // markersLayer.on("click", function (event) {
+        //     sidebar.open('sidebar-map');
+        // });
     }
 
     function add_events_to_map(map) {
@@ -117,6 +122,62 @@ function initial_map() {
         });
     }
 
+}
+
+function request_info_about_marker(markerIndex){
+    // Функция для запроса информации о нажатом маркер
+    console.log('Index marker:', markerIndex);
+
+    $.ajax({
+        url: '/get_marker_by_idx',
+        type: 'GET',
+        data: { index: markerIndex }, // Передача индекса маркера в запросе
+        success: function (data) {
+          // Обработка успешного ответа
+            updateSidebar(data);
+            console.log(data.address)
+        },
+        error: function (error) {
+          // Обработка ошибки
+          console.error('Ajax request failed', error);
+        }
+      });
+
+}
+
+function updateSidebar(data) {
+    // Функция для обновления sidebar
+    $('.sidebar-item-name-establishment').text(data.name);
+    $('.sidebar-item-type-establishment').text(data.type);
+    $('.sidebar-item-address').text('Адресс: ' + data.address);
+    $('.sidebar-item-evaluation-establishment').text(data.rating);
+    $('.sidebar-item-reviews-establishment').text(data.reviews + ' отзыва');
+    $('.sidebar-item-description').text(data.description);
+    
+    updateCarousel(data.imagesUrl);
+}
+
+function updateCarousel(images) {
+    // Функция для добавления ссылок в карусель    
+
+    // Очистка существующих слайдов и индикаторов
+    $('#carouselImagesEvents .carousel-inner').empty();
+    $('#carouselImagesEvents .carousel-indicators').empty();
+
+    // Добавление новых слайдов и индикаторов
+    for (var i = 0; i < images.length; i++) {
+        var activeClass = i === 0 ? 'active' : '';
+        $('#carouselImagesEvents .carousel-inner').append(
+            '<div class="carousel-item ' + activeClass + '">' +
+            '<img src="' + images[i] + '" class="carousel-img d-block w-100" alt="Slide ' + (i + 1) + '" />' +
+            '</div>'
+        );
+
+        $('#carouselImagesEvents .carousel-indicators').append(
+            '<button type="button" data-bs-target="#carouselImagesEvents" data-bs-slide-to="' + i + '" ' +
+            'class="' + activeClass + '" aria-current="true" aria-label="Slide ' + (i + 1) + '"></button>'
+        );
+    }
 }
 
 function adding_buttons_handler_to_map(sidebar) {

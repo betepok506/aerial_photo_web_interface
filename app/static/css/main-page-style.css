@@ -40,8 +40,13 @@
 /* Одиночный элемент боковой понели*/
 .sidebar-item {
   display: block;
-  margin-top: 5px;
-  /* margin-bottom: 5px; */
+  margin-top: 15px;
+}
+
+.sidebar-item, .sidebar-item-evaluation-establishment p {
+  font-size: 16px;
+  color: #000;
+
 }
 
 h3 {

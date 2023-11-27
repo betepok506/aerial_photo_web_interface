@@ -35,6 +35,68 @@ from app import create_app, db, login_manager, bcrypt
 from models import User
 from forms import login_form, register_form
 
+markers_data = [
+    {"lat": 54.191127, "lng": 45.177953, "idx": 1, "name": "Профком", "type": "Кальян-бар",
+     "address": "Пролетарская ул., 81",
+     "rating": 4.5,
+     "reviews": 33,
+     "workingHours": "17:00 - 01:00",
+     "imagesUrl": ["https://avatars.mds.yandex.net/get-altay/9368060/2a0000018944034872a9c0dbe175d5be9576/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/10829645/2a0000018aae6594924d4f66b7992b90fb0d/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/9691438/2a0000018aae6354db409471f29c8bfa9181/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/10147638/2a0000018a3ca98dd4d394d45a04f1e46fa6/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/6548191/2a0000018a3caa33df0dcd975762eae38d07/XXXL"
+                   ],
+     "description": "Отличное место, можно отдохнуть как в одиночестве, так и в компании. Уютная, спокойная и расслабляющая атмосфера. Кальяны на высшем уровне, идеальная крепость, отменно, дымно, вкусно:)"},
+
+    {"lat": 54.186961, "lng": 45.175325, "idx": 2, "name": "Солнце и Луна", "type": "Ресторан",
+     "address": "ул. Богдана Хмельницкого, 40", "rating": 4.4,
+     "reviews": 97,
+     "workingHours": "10:00 - 00:00",
+     "imagesUrl": ["https://avatars.mds.yandex.net/get-altay/1779701/2a00000184cd61b6dff977f177bdb42ef678/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/1871297/2a00000184cd614db5cdad3db541fda65590/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/7810332/2a00000184cd5fe88f450dbb819178bc8f0d/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/788991/2a00000184cd5fa9cceeb561a9f45b499ffa/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/5584339/2a0000017d93862d392c8383c048ea6d9de5/XXXL"],
+     "description": "Уютная атмосфера , красивый интерьер, еда всегда очень вкусная - повара стараются ,выбор блюд огромен можно провести как банкет так и просто прийти поужинать."},
+
+    {"lat": 54.186533, "lng": 45.177716, "idx": 3, "name": "Мао", "type": "Ресторан", "address": "Пролетарская ул., 43",
+     "rating": 4.4,
+     "reviews": 125,
+     "workingHours": "10:00 - 23:00",
+     "imagesUrl": ["https://avatars.mds.yandex.net/get-altay/5482460/2a0000017e3d4c55bf78978f6ea8dfbbe3f5/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/1045589/2a000001873e149c8240e9334a1ca4a294a7/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/6527792/2a000001880be23ef021a274076d7f7f9302/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/8072647/2a00000184f22b30c5c48bcb56d5acb25625/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/5598654/2a0000017cbf4a0cba1f4e56cddb93f0049c/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/771751/2a000001880be23f08f4a548ec19f22f41cd/XXXL"],
+     "description": "В ресторане Mao можно попробовать паназиатские блюда, такие как суп «Рамен», запеченные роллы, жареное молоко и другие. Кроме того, посетители высоко оценивают уютную атмосферу и приятную музыку в ресторане."},
+
+    {"lat": 54.185953, "lng": 45.187322, "idx": 4, "name": "Милано", "type": "Пиццерия",
+     "address": "просп. Ленина, 10Б", "rating": 4.3,
+     "reviews": 213,
+     "workingHours": "10:00 - 22:05",
+     "imagesUrl": ["https://avatars.mds.yandex.net/get-altay/9368060/2a0000018991f5fcd0a1a48549f5a24108c3/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/938969/2a0000018907ca0ee235356374fd43e07f23/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/4437253/2a00000178f21ab8467071ffd115f3ab842e/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/3935166/2a000001884efa1265c9a99952a429f87973/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/4504251/2a0000017835884615678fafbe1bad18f4ea/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/4012648/2a00000178358b9abaa4f71c4fe214ca92a3/XXXL"],
+     "description": "Очень вкусная пицца, большой выбор, на любой вкус. Находятся в самом центре, удобно зайти и быстро перекусить. Есть доставка"},
+
+{"lat": 54.183046, "lng": 45.182249, "idx": 5, "name": "Та самая", "type": "Кондитерская",
+     "address": "Большевистская ул., 13", "rating": 4.4,
+     "reviews": 87,
+     "workingHours": "07:00 - 23:00",
+     "imagesUrl": ["https://avatars.mds.yandex.net/get-altay/750770/2a0000018581ea209145cde6a5146c0da770/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/5253303/2a0000017c0599ab543b35ffdb8a3288cdf1/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/4587805/2a00000177d82b72d6d1623c206d6c7710ad/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/4441482/2a00000177d82b0d788ed0273afbb38ac20e/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/4618902/2a00000178f57fb01b69a7c783a4f404ef84/XXXL",
+                   "https://avatars.mds.yandex.net/get-altay/9284964/2a00000189f06c3e2a2abf2adcf5055bca4a/XXXL"],
+     "description": "Хорошая кондитерская с большим выбором выпечки и разных, разностей. Приятный персонал и удобное месторасположение кафе."}
+]
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -150,13 +212,6 @@ def register():
 @app.route("/getMarkers/", methods=["GET"])
 def getMarkers():
     # 54.187558, 45.177761
-    markers_data = [
-        {"lat": 54.187558, "lng": 45.167761, "name": "Marker 1", "type": "Restaurant", "address": "123 Main St",
-         "rating": 4.5,
-         "reviews": 100, "workingHours": "9 AM - 6 PM", "imageUrl": "https://example.com/image1.jpg"},
-        {"lat": 54.177558, "lng": 45.187761, "name": "Marker 2", "type": "Cafe", "address": "456 Oak St", "rating": 4.2,
-         "reviews": 80, "workingHours": "10 AM - 7 PM", "imageUrl": "https://example.com/image2.jpg"},
-    ]
 
     ne_lat = float(request.args.get('neLat'))
     ne_lng = float(request.args.get('neLng'))
@@ -171,6 +226,18 @@ def getMarkers():
     ]
 
     return jsonify(filtered_markers)
+
+
+@app.route("/get_marker_by_idx/", methods=["GET"])
+def get_marker_by_idx():
+    idx = float(request.args.get('index'))
+    print(f"{idx}")
+
+    for cur_marker in markers_data:
+        if cur_marker['idx'] == idx:
+            return jsonify(cur_marker)
+
+    return 1
 
 
 @app.route("/landing_page/", methods=["GET"])
