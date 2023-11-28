@@ -34,6 +34,11 @@ from flask_login import (
 from app import create_app, db, login_manager, bcrypt
 from models import User
 from forms import login_form, register_form
+import logging
+
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
+
+
 
 markers_data = [
     {"lat": 54.191127, "lng": 45.177953, "idx": 1, "name": "Профком", "type": "Кальян-бар",
@@ -217,7 +222,7 @@ def getMarkers():
     ne_lng = float(request.args.get('neLng'))
     sw_lat = float(request.args.get('swLat'))
     sw_lng = float(request.args.get('swLng'))
-    print(f"{ne_lat} {ne_lng} {sw_lat} {sw_lng}")
+    # print(f"{ne_lat} {ne_lng} {sw_lat} {sw_lng}")
 
     # Пример логики фильтрации маркеров в пределах границ
     filtered_markers = [
@@ -231,7 +236,7 @@ def getMarkers():
 @app.route("/get_marker_by_idx/", methods=["GET"])
 def get_marker_by_idx():
     idx = float(request.args.get('index'))
-    print(f"{idx}")
+    # print(f"{idx}")
 
     for cur_marker in markers_data:
         if cur_marker['idx'] == idx:

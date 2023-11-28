@@ -91,7 +91,8 @@ function initial_map() {
                     });
 
                     marker.on('mouseout', function (e) {
-                        this.closePopup();
+                        setTimeout(function() { map.closePopup();}, 3000);
+                        //this.closePopup();
                     });
 
                     marker.on('click', function () {
