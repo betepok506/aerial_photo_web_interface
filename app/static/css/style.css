@@ -1,0 +1,93 @@
+
+
+ html, body, .container-fluid {
+    height: 95%;
+    padding:0px;
+    margin:0px;
+    width: 100%;
+}
+
+/* Карточка события */
+.card-event {
+    max-height: 150px;
+}
+
+
+/* Контейнер, содержащий блок с кнопкой для создания события */
+.event-creation-button-container {
+    /*margin-bottom: 20px;*/
+    display: flex;
+    justify-content: right;
+}
+
+/* Контейнер, содержащий кнопку для создания события */
+.button-create-event{
+    height: 40px;
+    margin: 10px;
+}
+
+/* Контейнер, центральный блок событий*/
+.event-container {
+    width: 75%;
+    border-radius: 15px;
+    background-color: #3f4245;
+    height: 80vh;
+}
+
+/* Контейнер, содержащий объединяющий все блоки событий*/
+.block-events {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.list-of-events {
+    padding: 0px 15px 0px 15px ;
+
+}
+
+
+/* Контейнер, содержащий блок с пагинацией для событий */
+.pagination-of-events{
+    height: 60px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+.footer{
+    margin-top: 0px;
+}
+
+/* Изменение положения navbar */
+/* .navbar-collapse {
+    position: fixed;
+    top: 54px;
+    left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    background:#f1f1f1;
+    max-width: 320px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .navbar-collapse.collapsing {
+    height: 100%;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+    left: -100%;
+  }
+
+  .navbar-collapse.show {
+    left: 0;
+    -webkit-transition: left 0.3s ease-in;
+    -o-transition: left 0.3s ease-in;
+    -moz-transition: left 0.3s ease-in;
+    transition: left 0.3s ease-in;
+  } */
