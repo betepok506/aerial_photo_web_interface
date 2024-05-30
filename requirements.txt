@@ -1,4 +1,9 @@
 alembic==1.6.5
+requests
+pydantic_settings
+requests
+shapely
+
 bcrypt==3.2.0
 cffi==1.15.0
 click==8.0.1

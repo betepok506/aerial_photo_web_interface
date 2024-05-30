@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script type="text/javascript" src="/static/js/actions_create_polygon.js?1256"></script>
+
+{% endblock head %}
+
+{% block content %}
+
+<div class="container my-1 mt-5">
+    <form id='formPolygonCreate' class="row g-3 needs-validation" novalidate>
+        <input type="hidden" id="polygon-id" name="event-id" value={% if polygon_id is none %}null{% else %} {{polygon_id | json}} {% endif %}>
+        <!-- <hr>
+        </hr> -->
+        <div class="md-3 mt-1">
+            <label for="polygon-name" class="form-label">Название</label>
+            <input type="text" class="form-control" name='polygon-name' ,
+                   id="polygon-name" value="" required>
+        </div>
+
+        <div>Полигон</div>
+        <div id="map2"></div>
+
+        <div class="md-3 mt-1">
+<!--            <label for="polygon-coordinates" class="form-label">Координаты полигона</label>-->
+            <input type="hidden" class="form-control" name='polygon-coordinates'
+                   id="polygon-coordinates" value="" required>
+        </div>
+        <!--Дата создания снимка-->
+
+        <div class="row">
+            <div class="col-sm-3 d-flex align-items-center mb-0">
+                    <label for="div-date-creation" class="form-label mb-0">Даты создания снимка</label>
+            </div>
+            <div class="col">
+                <div class="row mt-2" id="div-date-creation">
+                    <div class="col-auto d-flex align-items-center mb-0">
+                        <label for="date-from" class="form-label mb-0">От</label>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="date-from" name="date-from">
+                    </div>
+
+                    <div class="col-auto d-flex align-items-center mb-0">
+                        <label for="date-to" class="form-label mb-0">До</label>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="date-to" name="date-to">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-3">
+                <label for="download-to" class="form-label mb-0">Скачивать до</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="date" class="form-control" id="download-to" name="download-to">
+            </div>
+
+        </div>
+
+        <!-- <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div> -->
+
+        <div class="row d-flex flex-wrap button-section">
+            <div class="mt-4 p-0" style="width: 110px;">
+                <button class="btn btn-primary mb-2" id='button-submit-form' type="submit">Создать</button>
+            </div>
+
+            <div class="ms-3 mt-4 p-0" style="width: 110px;">
+                <button class="btn btn-primary mb-2" id='button-back'>Отмена</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

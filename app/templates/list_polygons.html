@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script type="text/javascript" src="/static/js/actions_list_polygons.js"></script>
+
+{% endblock head %}
+
+{% block content %}
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <!-- Кнопка -->
+            <!-- <li> -->
+            <div class="text-end mb-1">
+                <a type="button" href="/polygon_creation_form" class="btn btn-primary">Добавить полигон</a>
+            </div>
+            <!-- </li> -->
+
+        </div>
+    </div>
+</div>
+
+<div class="container my-1">
+    <div class="row card-body">
+        <div class="d-flex align-items-center justify-content-center" style="width: 100px;">
+            <div class="custom-card text-center">
+                <div class="p-2 fw-bold">ID</div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 d-flex align-items-center">
+            <div class="custom-card">
+                <div class="p-2 fw-bold">Название</div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="col">
+                <div class="custom-card col-auto text-center">
+                    <div class="p-2 fw-bold">Даты скачивания</div>
+                </div>
+                <div class="row">
+                    <div class="custom-card col-sm-6">
+                        <div class="p-2 fw-bold">От</div>
+                    </div>
+
+                    <div class="custom-card col-sm-6">
+                        <div class="p-2 fw-bold">До</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-2 d-flex align-items-center">
+            <div class="custom-card ">
+                <div class="p-2 fw-bold">Добавил</div>
+            </div>
+        </div>
+
+        <div class="col-sm-2 d-flex align-items-center">
+            <div class="custom-card ">
+                <div class="p-2 fw-bold">Время добавления</div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="list-tokens center-content">
+    {% for item in items %}
+    <div class="container my-1">
+        <div class="card">
+            <div class="row card-body p-1">
+                <div style="width: 100px;">
+                    <div class="custom-card card-id text-center">
+                        <p class="mb-0">{{ item.id }}</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="custom-card text-truncate">
+                        <p class="mb-0">{{ item.name }}</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    <div class="custom-card">
+                        <p class="mb-0">{{ item.start_time }}</p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-1">
+                    <div class="custom-card">
+                        <p class="mb-0">{{ item.end_time }}</p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-2">
+                    <div class="custom-card">
+                        <p class="mb-0">{{ item.owner_relationship.username }}</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="custom-card">
+                        <p class="mb-0">{{ item.created_at }}</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-1 d-flex justify-content-end">
+                    <div class="custom-card">
+                        <button type="button" class="btn edit-button p-0"
+                            style="height: 32px; width: 32px; transform: scaleX(-1);">
+                            &#9998
+                        </button>
+
+                        <button type="button" class="btn delete-button p-0" style="height: 32px; width: 32px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-x"
+                                viewBox="0 0 16 16 ">
+                                <path
+                                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+{% block pagination %}
+<nav aria-label="">
+    <ul class="pagination justify-content-center mt-4">
+            {% if page >= 2 %}
+            <li class="page-item {% if page == 1 %}disabled{% endif %}">
+                    <a class="page-link" href="?page={{ page - 1 }}">Предыдущая</a>
+            </li>
+            {% endif %}
+
+            {% if page >= 2 %}
+            <a href="?page=1" class="page-link {% if page == 1 %}active{% endif %}">1</a>
+            <a href="?page=2" class="page-link {% if page == 2 %}active{% endif %}">2</a>
+            {% if page > 3 %}
+            <span class="ellipsis">...</span>
+            {% endif %}
+            {% endif %}
+            
+            {% for p in range(1, total_pages + 1) %}
+            <li class="page-item {% if page == p %}active{% endif %}">
+                    {% if page-1 <= p and p <=page+1 and 2 < p and p < total_pages - 1  %}
+                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                    {% endif %}
+            </li>
+            {% endfor %}
+
+            {% if page > 2 and page < total_pages - 2 %} <span class="ellipsis">...</span>
+                    {% endif %}
+                    {% if page > 2 and page < total_pages + 1 %} <a href="?page={{ total_pages - 1 }}" class="page-link {% if page == total_pages - 1 %}active{% endif %}">{{
+                            total_pages - 1 }}</a>
+                            <a href="?page={{ total_pages}}" class="page-link {% if page == total_pages %}active{% endif %}">{{ total_pages }}</a>
+                            {% endif %}
+
+            {% if page >= 2 %}
+            <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+                    <a class="page-link" href="?page={{ page + 1 }}">Следующая</a>
+            </li>
+            {% endif %}
+    </ul>
+</nav>
+{% endblock %}

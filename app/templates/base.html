@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <!--<html lang="en" data-bs-theme="dark">-->
 
 <head>
@@ -15,8 +15,9 @@
           crossorigin="anonymous">
 
     <link rel="stylesheet" href="/static/css/leaflet.css"/>
-<!--    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""/>-->
+    <!--    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""/>-->
     <link rel="stylesheet" href="/static/css/leaflet-sidebar.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
     <!--    Свои стили-->
     <link rel="stylesheet" href="/static/css/style.css"/>
     <link rel="stylesheet" href="/static/css/main-page-style.css"/>
@@ -28,23 +29,39 @@
     <script type="text/javascript" src="/static/js/map.js"></script>
     <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/static/js/leaflet-src.js"></script>
-<!--    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"-->
-<!--        crossorigin=""></script>-->
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <!--    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"-->
+    <!--        crossorigin=""></script>-->
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <script type="text/javascript" src="/static/js/leaflet-sidebar.js"></script>
     <script type="text/javascript" src="/static/js/leaflet-tilelayer-colorfilter.min.js"></script>
     <!-- Sweet alert Js -->
     <!--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
     <title> {% block title%} {{ title }} {% endblock %} </title>
+
+    {% block head %}
+    <!-- Required meta tags -->
+
+    {% block styles %}
+    <!-- Bootstrap CSS -->
+
+    {% endblock styles %}
+
+    <!--    <script type="text/javascript" src="/static/js/jquery-3.7.0.min.js"></script>-->
+    <!--    <script type="text/javascript" src="/static/js/bootstrap-5.3.1.min.js"></script>-->
+    <!-- <script type="text/javascript" src="/static/js/login_avili.js"></script> -->
+
+    {% endblock head %}
 </head>
 
 <body>
 <nav class="navbar navbar-dark bg-dark fixed-top" style="position: relative;">
     <!--        <div class="container-fluid">-->
-    <a class="navbar-brand" href="/main" style="margin-left: 1em;">WayToRest</a>
+    <a class="navbar-brand" href="/main" style="margin-left: 1em;">The Eye</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar">
@@ -67,42 +84,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/events">Лента</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Настройки</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="/about">О нас</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="/landing_page">Лендинг</a>
+                    <a class="nav-link active" aria-current="page" href="/polygons">Полигоны</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/logout">Выйти</a>
                 </li>
 
-
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Выпадающий список
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="#">Действие</a></li>
-                        <li><a class="dropdown-item" href="#">Другое действие</a></li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
-                    </ul>
-                </li> -->
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/login">Войти</a>
@@ -110,10 +98,6 @@
                 {% endif %}
             </ul>
 
-            <!-- <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                <button class="btn btn-success" type="submit">Поиск</button>
-            </form> -->
 
         </div>
     </div>
@@ -126,42 +110,13 @@
     <!--        </div>-->
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" id="container-fluid">
     {% block content%}
     {% endblock %}
 </div>
 
 <div class="container bg-dark">
-<!--    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">-->
-<!--        <p class="col-md-4 mb-0 text-muted">© 2023 WayToRest, Inc</p>-->
 
-<!--        <a href="/"-->
-<!--           class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">-->
-<!--            <svg class="bi me-2" width="40" height="32">-->
-<!--                <use xlink:href="#bootstrap"></use>-->
-<!--            </svg>-->
-<!--        </a>-->
-
-<!--        <ul class="nav col-md-4 justify-content-end">-->
-<!--            <li class="nav-item"><a href="/main" class="nav-link px-2 text-muted">Главная</a></li>-->
-<!--            <li class="nav-item"><a href="/events" class="nav-link px-2 text-muted">События</a></li>-->
-<!--            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>-->
-<!--            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>-->
-<!--            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>-->
-<!--        </ul>-->
-<!--    </footer>-->
-
-    <!--      <footer class="py-3" >-->
-    <!--        <ul class="nav justify-content-center border-bottom pb-3 mb-3">-->
-    <!--          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>-->
-    <!--          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>-->
-    <!--          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>-->
-    <!--          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>-->
-    <!--          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>-->
-    <!--        </ul>-->
-
-    <!--        <p class="text-center text-body-secondary">© 2023 Company, Inc</p>-->
-    <!--      </footer>-->
 </div>
 
 <!-- Bootstrap Bundle with Popper -->
@@ -170,4 +125,6 @@
         crossorigin="anonymous"></script>
 </body>
 
+{% block pagination%}
+{% endblock %}
 </html>

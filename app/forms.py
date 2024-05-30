@@ -8,10 +8,10 @@ from wtforms import (
 )
 
 from flask_wtf import FlaskForm
-from wtforms.validators import InputRequired, Length, EqualTo, Email, Regexp ,Optional
+from wtforms.validators import InputRequired, Length, EqualTo, Email, Regexp, Optional
 import email_validator
 from flask_login import current_user
-from wtforms import ValidationError,validators
+from wtforms import ValidationError, validators
 from models import User
 
 
@@ -46,11 +46,12 @@ class register_form(FlaskForm):
         ]
     )
 
-
     def validate_email(self, email):
-        if User.query.filter_by(email=email.data).first():
+        response = User.get_user_by_login(login=email.data)
+        if response.status_code != 404:
             raise ValidationError("Email already registered!")
 
     def validate_uname(self, uname):
-        if User.query.filter_by(username=username.data).first():
-            raise ValidationError("Username already taken!")
+        pass
+        # if User.query.filter_by(username=username.data).first():
+        #     raise ValidationError("Username already taken!")
