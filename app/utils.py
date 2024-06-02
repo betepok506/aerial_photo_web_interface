@@ -42,6 +42,8 @@ def send_request(url, method="GET", data=None):
         response = requests.get(url)
     elif method.upper() == "POST":
         response = requests.post(url, json=data)
+    elif method.upper() == "DELETE":
+        response = requests.delete(url)
     else:
         raise ValueError("Неподдерживаемый HTTP метод. Поддерживаются только GET и POST.")
 

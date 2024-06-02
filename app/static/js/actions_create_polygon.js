@@ -184,7 +184,7 @@ function load_layer() {
 
     var base_layer = new L.tileLayer.colorFilter('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
-        filter: myFilter
+//        filter: myFilter
     })
 
     var base_maps = {

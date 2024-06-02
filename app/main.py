@@ -150,15 +150,15 @@ def create_polygon():
 @app.route('/delete_polygon', methods=['DELETE'])
 @login_required
 def delete_polygon():
-    event_id = int(
+    polygon_id = int(
         request.args.get('polygon_id'))  # Получаем параметр 'index' из строки запроса и преобразуем в целое число
 
-    response = send_request(settings.SERVER_URL + f'/api/v1/polygon/delete_polygon_to_search_for/{event_id}', "DELETE")
+    response = send_request(settings.SERVER_URL + f'/api/v1/polygon/delete_polygon_to_search_for/{polygon_id}', "DELETE")
     if not 200 <= response.status_code < 300:
         app.logger.warning(f'Ошибка: {response.json()}')
         raise f"Ошибка удаления события. Ошибка: {response.json()}"
 
-    app.logger.info(f'Полигон с индексом {event_id} успешно удалено!')
+    app.logger.info(f'Полигон с индексом {polygon_id} успешно удалено!')
     return make_response("OK", 200)
 
 
@@ -207,9 +207,9 @@ def login():
 
     return render_template("auth.html",
                            form=form,
-                           text="Login",
-                           title="Login",
-                           btn_action="Login"
+                           text="Авторизация",
+                           title="Авторизация",
+                           btn_action="Вход"
                            )
 
 
@@ -251,9 +251,9 @@ def register():
 
     return render_template("auth.html",
                            form=form,
-                           text="Create account",
-                           title="Register",
-                           btn_action="Register account"
+                           text="Регистрация",
+                           title="Регистрация",
+                           btn_action="Зарегистрироваться"
                            )
 
 

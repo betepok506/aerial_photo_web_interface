@@ -12,7 +12,7 @@ function addDeleteButtonHandler() {
 
         //        requestData = { "id": cardBody };
         // Отправка запроса
-        fetch('/delete_event?polygon_id=' + cardBody, { //Пофиксить на адресс сервера
+        fetch('/delete_polygon?polygon_id=' + cardBody, { //Пофиксить на адресс сервера
             method: 'DELETE',
         })
             .then(response => {
