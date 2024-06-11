@@ -29,7 +29,7 @@ from flask_login import (
     login_required,
 )
 from datetime import datetime
-from create_app import create_app, login_manager, bcrypt
+from app.create_app import create_app, login_manager, bcrypt
 from app.models import User
 from app.forms import login_form, register_form
 from app.config import settings
@@ -263,6 +263,6 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=settings.debug, port=os.getenv("WEB_PORT", 3000))
+app.logger.info(f"Server URL: {settings.SERVER_URL}")
+# if __name__ == "__main__":
+#     app.run(host='0.0.0.0', debug=settings.debug, port=os.getenv("WEB_PORT", 3000))

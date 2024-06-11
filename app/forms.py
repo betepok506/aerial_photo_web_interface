@@ -12,7 +12,7 @@ from wtforms.validators import InputRequired, Length, EqualTo, Email, Regexp, Op
 import email_validator
 from flask_login import current_user
 from wtforms import ValidationError, validators
-from models import User
+from app.models import User
 
 
 class login_form(FlaskForm):

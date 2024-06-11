@@ -2,14 +2,25 @@ version: "3.8"
 
 services:
   web:
-    build:
-      context: ./
-    ports:
-      - ${WEB_PORT}:${WEB_PORT}
     env_file:
       - .env
+    build:
+      context: ./
+      args:
+        WEB_PORT: ${WEB_PORT}
+    environment:
+      WEB_PORT: ${WEB_PORT}
+    ports:
+      - ${WEB_PORT}:${WEB_PORT}
+
 #    environment:
 #      HOST: ${HOST}
 #      PORT: ${PORT}
     volumes:
       - ./logs:/web/logs
+    networks:
+      - network-aerial-photography
+
+networks:
+  network-aerial-photography:
+    external: true

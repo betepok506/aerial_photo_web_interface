@@ -6,6 +6,7 @@ def retry_request(max_attempts, time_sleep, initial_delay=1.5, backoff_factor=1.
     def decorator(func):
         def wrapper(*args, **kwargs):
             delay = initial_delay
+            exception = None
             for attempt in range(max_attempts):
                 try:
                     result = func(*args, **kwargs)
@@ -16,8 +17,9 @@ def retry_request(max_attempts, time_sleep, initial_delay=1.5, backoff_factor=1.
                         # print(f"Повторная попытка через {delay} секунд...")
                         # time.sleep(time_sleep)
                         delay += backoff_factor
+                    exception = e
 
-            raise RuntimeError(f"Не удалось выполнить функцию {func.__name__} после {max_attempts} попыток.")
+            raise RuntimeError(f"Не удалось выполнить функцию {func.__name__} после {max_attempts} попыток. Ошибка: {exception}")
 
         return wrapper
 
